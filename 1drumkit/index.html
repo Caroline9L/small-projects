@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="65" src="sounds/clap.wav"></audio>
+  <audio data-key="83" src="sounds/hihat.wav"></audio>
+  <audio data-key="68" src="sounds/kick.wav"></audio>
+  <audio data-key="70" src="sounds/openhat.wav"></audio>
+  <audio data-key="71" src="sounds/boom.wav"></audio>
+  <audio data-key="72" src="sounds/ride.wav"></audio>
+  <audio data-key="74" src="sounds/snare.wav"></audio>
+  <audio data-key="75" src="sounds/tom.wav"></audio>
+  <audio data-key="76" src="sounds/tink.wav"></audio>
+
+<script>
+
+//Run the event ("e")
+function playSound(e) {
+    //find the audio element that matches the key
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //to find elements with audio, look for the selector - use es6 to find the selector with any data key
+    //find the css/object that matches the key
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //to find elements with class key
+    //stop the function if an unsupported key is pressed
+    if (!audio) return; //if no audio, stop function
+    //reset the audio for multiple presses
+    audio.currentTime = 0; //rewinds audio for replay
+    //play the audio
+    audio.play(); //does not seem to be supported, should trigger sound
+    //add the play class to alter the object corresponding to that key
+    key.classList.add('playing');  //add a class from the stylesheet as indicated -- = $key.addClass('playing'); in jquery
+  }
+
+  //reset object at end of transition
+  function removeTransition(e) {
+    // if the event name is not tranform, stop the function
+    if (e.propertyName !== 'transform') return;
+    //remove class from the active object ('this')
+    this.classList.remove('playing');
+  }
+
+
+  //find each object with the class key
+  const keys = document.querySelectorAll('.key');//transition end event
+  //loop over each object, add event listener, run removeTransition function
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  //Click a key to trigger the event/ function playSound
+  window.addEventListener('keydown', playSound);
+
+</script>
+
+
+</body>
+</html>
