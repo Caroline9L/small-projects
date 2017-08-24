@@ -1,0 +1,141 @@
+
+       * { box-sizing:border-box; margin:0; padding:0; }
+
+       body {
+           font:100%/2 "Playfair Display";
+           background:#222;
+           margin:7.5rem 5rem 5rem;
+           color:gainsboro;
+           text-align:center;
+           -webkit-user-select:none;
+           user-select:none;
+       }
+
+       header {
+           -webkit-filter:drop-shadow(1px 1px 0 #222);
+           filter:drop-shadow(1px 1px 0 #222);
+       }
+
+       header {
+           border-top:thin solid #444;
+           padding:0 5rem;
+       }
+
+       h1 {
+           display:inline-block;
+           background:#222;
+           position:relative;
+           top:-2.25rem;
+           padding:0 2rem;
+           font-size:2em;
+           font-weight:400;
+       }
+
+       h2 {
+           font-size:1rem;
+           font-weight:400;
+           padding-top:2rem;
+       }
+
+
+       section { margin:2.5rem 0; }
+
+       /* Clearfix */
+           section:after {
+               display:block;
+               content:"";
+               clear:both;
+           }
+
+
+       img {
+           position: relative;
+           float: left;
+           width:25%;
+           padding:.25rem;
+           height: auto;
+           -webkit-transition:.4s, width 0;
+           transition:.4s, width 0;
+           cursor: pointer;
+       }
+
+       /* Doing the checkbox hack here
+          For more information, see:  http://css-tricks.com/the-checkbox-hack/
+       */
+
+       input { display:none; }
+       label {
+           display:inline-block;
+           cursor:pointer;
+           padding:.25rem .5rem;
+           border-bottom:thin solid #222;
+           -webkit-transition:.3s;
+           transition:.3s;
+       }
+       label:hover {
+           border-bottom-color:#444;
+           color:white;
+       }
+       label:active {
+           -webkit-transform:translateY(-3px);
+           transform:translateY(-3px);
+           -webkit-transition:0;
+           transition:0;
+       }
+
+       input:checked + label {
+           border-bottom-color:tomato;
+           color:white;
+       }
+
+       .grayscale:checked ~ section:hover img { -webkit-filter:grayscale(1) opacity(.5);  }
+       .sepia:checked ~ section:hover img { -webkit-filter:sepia(1) opacity(.5);  }
+       .grayscale-contrast:checked ~ section:hover img { -webkit-filter:grayscale(1) contrast(10) opacity(.2); }
+       .blur:checked ~ section:hover img { -webkit-filter:blur(5px) opacity(.5); }
+       .grayscale-blur:checked ~ section:hover img { -webkit-filter:grayscale(1) blur(4px) opacity(.5); }
+       .trippy:checked ~ section:hover img { -webkit-filter:invert(1) saturate(50) opacity(.5); }
+       .blacklight:checked ~ section:hover img { -webkit-filter:sepia(1) hue-rotate(220deg) saturate(5) contrast(3) opacity(.5) }
+
+
+       section:hover img:hover {
+           -webkit-filter:none !important;
+           z-index:1;
+       }
+
+       section:hover img:active {
+           -webkit-transition:0;
+           -webkit-transform:scale(1.2);
+           transform:scale(1.2);
+       }
+
+       /* Just some little fixes to make the site look a little better on mobile */
+       @media all and (max-width:60em){
+           body { margin:5rem 2.5rem; }
+           header { border:0; }
+           h1 { font-size:1.5rem; padding:0; }
+           img { width:50%; }
+       }
+
+#window-resizer-tooltip {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    bottom: 0px;
+    right: 0px;
+    color: rgb(204, 204, 204);
+    width: 200px;
+    white-space: nowrap;
+    border-top-left-radius: 10px;
+    background: 10px 10px no-repeat rgba(0, 0, 0, 0.8);
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 5px 0px 5px 40px;
+    font: 11px Tahoma, Verdana, sans-serif;
+}
+
+.greyscale {
+  -webkit-filter:grayscale(1) blur(4px) opacity(.5);
+}
+.greyscale:hover {
+  -webkit-filter:none !important;
+}

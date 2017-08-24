@@ -1,0 +1,68 @@
+<!doctype html>
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <title>gallery test</title>
+          <link rel="stylesheet" type="text/css" href="style.css">
+      </head>
+
+<body style>
+   <header>
+       <h1>Using <em>Filter Effects</em> in a Gallery</h1>
+   </header>
+
+       <input class="grayscale" id="grayscale" type="radio" name="effect">
+       <label for="grayscale">Grayscale</label>
+
+       <input class="sepia" id="sepia" type="radio" name="effect">
+       <label for="sepia">Sepia</label>
+
+       <input checked="" class="grayscale-contrast" id="grayscale-contrast" type="radio" name="effect">
+       <label for="grayscale-contrast">Grayscale + Contrast</label>
+
+       <input class="blur" id="blur" type="radio" name="effect">
+       <label for="blur">Blur</label>
+
+       <input class="grayscale-blur" id="grayscale-blur" type="radio" name="effect">
+       <label for="grayscale-blur">Grayscale + Blur</label>
+
+
+       <input class="trippy" id="trippy" type="radio" name="effect">
+       <label for="trippy">Trippy</label>
+
+       <input class="blacklight" id="blacklight" type="radio" name="effect">
+       <label for="blacklight">Blacklight</label>
+
+       <br>
+
+       <h2>Hover over an image and see the filter property in action.</h2>
+
+      <section class="gallery">
+           <img src="img/deer.jpg" class="greyscale" width="640px" height="400px">
+           <img src="img/flowers.jpg" width="640px" height="400px">
+           <img src="img/sunglasses.jpg" width="640px" height="400px">
+           <img src="img/canal.jpg" width="640px" height="400px">
+           <img src="img/horse.jpg" width="640px" height="400px">
+           <img src="img/sunrise.jpg" width="640px" height="400px">
+           <img src="img/sunset.jpg" width="640px" height="400px">
+           <img src="img/waterfalls.jpg" width="640px" height="400px">
+           <img src="img/canal.jpg" width="640px" height="400px">
+           <img src="img/oranges.jpg" width="640px" height="400px">
+           <img src="img/willows.jpg" width="640px" height="400px">
+           <img src="img/rain.jpg" width="640px" height="400px">
+       </section>
+
+
+  <div id="window-resizer-tooltip">
+    <a href="#" title="Edit settings"></a>
+    <span class="tooltipTitle">Window size: </span>
+    <span class="tooltipWidth" id="winWidth"></span>
+    x
+    <span class="tooltipHeight" id="winHeight"></span>
+    <br>
+    <span class="tooltipTitle">Viewport size: </span>
+    <span class="tooltipWidth" id="vpWidth"></span>
+    x
+    <span class="tooltipHeight" id="vpHeight"></span>
+  </div>
+</body>
