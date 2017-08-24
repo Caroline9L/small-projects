@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+}
+.pic {
+    text-align: center;
+    position: relative;
+    height: 500px;
+}
+.blur {
+    height: 100%;
+}
+.overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+}
+circle {
+   opacity: 1;
+   -webkit-transition: opacity 1000ms linear;
+   transition: opacity 1000ms linear;
+}
