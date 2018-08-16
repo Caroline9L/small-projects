@@ -1,0 +1,78 @@
+.app-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 100vh;
+	grid-template-areas: "search replies messages tweets"
+}
+
+.tweets {
+	background-color: red;
+	/* grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row: 1; */
+	grid-area: tweets;
+}
+
+.replies {
+	background-color: blue;
+	color: white;
+	/* grid-column: 2/3;
+	grid-row: 1; */
+	grid-area: "replies"
+}
+
+.search {
+	background-color: yellow;
+	/* grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row: 1; */
+	grid-area: search;
+}
+
+.messages {
+	background-color: green;
+	color: white;
+	/* grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row: 1; */
+	grid-area: messages;
+}
+
+@media screen and (min-width: 768px) {
+	.app-layout {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 50vh 50vh;
+	}
+
+	.tweets {
+		background-color: red;
+		grid-column-start: 1;
+		grid-column-end: 2;
+		grid-row: 1;
+	}
+
+	.replies {
+		background-color: blue;
+		color: white;
+		grid-column: 2/3;
+		grid-row: 1;
+	}
+
+	.search {
+		background-color: yellow;
+		grid-column-start: 3;
+		grid-column-end: 4;
+		grid-row: 1;
+	}
+
+	.messages {
+		background-color: green;
+		color: white;
+		grid-column-start: 4;
+		grid-column-end: 5;
+		grid-row: 1;
+	}
+	
+}
+
