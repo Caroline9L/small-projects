@@ -1,0 +1,37 @@
+.layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 50vh 50vh;
+}
+
+#blur img{
+filter: blur(5px);
+}
+
+#bright img {
+	filter: brightness(0.3);
+}
+
+#saturate img {
+	filter: saturate(25%);
+}
+
+#hue-rotate img {
+	filter: hue-rotate(180deg);
+}
+
+#contrast img {
+	filter: contrast(150%);
+}
+
+#invert img {
+	filter: invert(100%);
+}
+
+#grayscale img {
+	filter: grayscale(100%);
+}
+
+#sepia img {
+	filter: sepia(100%);
+}
